@@ -25,13 +25,11 @@ async def handle_start(message: Message):
 
 @router.callback_query(F.data == 'back')
 async def handle_back(callback: CallbackQuery):
-    if callback.message.reply_markup != build_one_c_kb():
-        await callback.message.edit_text(text=callback.message.text, reply_markup=build_start_kb())
-        print(1)
-    else:
-        await callback.message.delete()
-        await start_message(callback.message)
-        print(2)
+    # if callback.message.reply_markup != build_one_c_kb():
+    #     await callback.message.edit_text(text=callback.message.text, reply_markup=build_start_kb())
+    # else:
+    await callback.message.delete()
+    await start_message(callback.message)
 
 
 @router.callback_query(F.data == 'menu')
